@@ -9,7 +9,7 @@ Note: The solution set must not contain duplicate triplets.
 For example, given array S = [-1, 0, 1, 2, -1, -4],
 
 A solution set is:
-[
+	[
   [-1, 0, 1],
   [-1, -1, 2]
 ]
@@ -47,31 +47,29 @@ public class Three_Sum {
 			System.out.println(result);
 		}
 		else {
-		for(int i=0;i<result.size();i++) {
-			System.out.print(result.get(i));
-		}
+			for(int i=0;i<result.size();i++) {
+				System.out.print(result.get(i));
+			}
 		}
 	}
 public static List<List<Integer>> return3Sum(int arr[]){
-	if(arr==null||arr.length==-1) {
-		List<List<Integer>> l=new ArrayList<>();
-		return l;
+	if(arr==null||arr.length<=2) {
+		return null;
 	}
-	List<List<Integer>> result=new ArrayList<>();
-	HashSet<List<Integer>> h=new HashSet<>();
+	
+	HashSet<List<Integer>> sets=new HashSet<>();
 	Arrays.sort(arr);
 	for(int i=0;i<arr.length-2;i++) {
-		int x=arr[i];
 		int j=i+1;
 		int k=arr.length-1;
 		while(j<k) {
-			int sum=x+arr[j]+arr[k];
+			int sum=arr[i]+arr[j]+arr[k];
 			if(sum==0) {
 				ArrayList<Integer> ans=new ArrayList<>();
-				ans.add(x);
+				ans.add(arr[i]);
 				ans.add(arr[j]);
 				ans.add(arr[k]);
-				h.add(ans);
+				sets.add(ans);
 				j++;
 				k--;
 			}
@@ -83,9 +81,7 @@ public static List<List<Integer>> return3Sum(int arr[]){
 			}
 		}
 	}
-	for(List<Integer> l:h) {
-		result.add(l);
-	}
+	List<List<Integer>> result=new ArrayList<>(sets);
 	return result;
 }
 	
