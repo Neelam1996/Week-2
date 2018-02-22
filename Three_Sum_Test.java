@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 class Three_Sum_Test {
 
 	@Test
-	void test1() {
+	void test_EmptyArray() {
 	List<List<Integer>> l=new ArrayList<>();
 	int arr[]= {};
 	assertEquals(l,Three_Sum.return3Sum(arr));
 	}
-	void test2() {
+	void test_AllZeros() {
 		ArrayList<Integer> l=new ArrayList<>();
 		int arr[]= {0,0,0,0,0,0};
 		l.add(0);
@@ -20,7 +20,7 @@ class Three_Sum_Test {
 		l.add(0);
 		assertEquals(l,Three_Sum.return3Sum(arr));
 	}
-	void test3() {
+	void test_ValidInput() {
 		int arr[]= {-1, 0, 1, 2, -1, -4};
 		ArrayList<Integer> l1=new ArrayList<>();
 		l1.add(-1);
